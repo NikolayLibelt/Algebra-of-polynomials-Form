@@ -120,7 +120,7 @@ public:
         int tmpconv = tmp.convolution;
         while (conv > 0 || tmpconv > 0) {
             int degreeValue = conv % maxDegree + tmpconv % maxDegree;
-            if (degreeValue > maxDegree) {
+            if (degreeValue >= maxDegree) {
                 result = -2;
                 break;
             }
