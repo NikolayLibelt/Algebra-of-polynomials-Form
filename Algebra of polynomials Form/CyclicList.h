@@ -143,11 +143,11 @@ public:
 
 
 	CyclicList operator *(int k) {
-
 		if (k == 0) {
 			CyclicList result;
 			return result;
 		}
+
 		CyclicList result(*this);
 		Monomial* current = result.head->getNext();
 		while (current != result.head) {

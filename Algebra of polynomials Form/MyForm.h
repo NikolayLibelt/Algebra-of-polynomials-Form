@@ -441,10 +441,6 @@ namespace AlgebraofpolynomialsForm {
 			return true;
 		}
 
-	bool isValidPolynomial(const std::string& polynomial) {
-			return true;
-		}
-
 	void removeSpaces(std::string& str) {
 			str.erase(remove(str.begin(), str.end(), ' '), str.end());
 		}
@@ -464,17 +460,7 @@ private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^
 			string stringB = msclr::interop::marshal_as<std::string>(textB->Text);
 			removeSpaces(stringB);
 			if (!stringA.empty()) {
-				if (!isValidPolynomial(stringA)) {
-					labelA->Text = "Error:Wrong format!";
-					labelA->Visible = TRUE;
-				}
-				else {
 					if (!stringB.empty()) {
-						if (!isValidPolynomial(stringB)) {
-							labelB->Text = "Error:Wrong format!";
-							labelB->Visible = TRUE;
-						}
-						else {
 							int maxDegree = stoi(stringMaxDegree);
 							int count = stoi(stringCount);
 							A = Polynomial(stringA, maxDegree, count);
@@ -489,13 +475,11 @@ private: System::Void buttonAdd_Click(System::Object^ sender, System::EventArgs^
 							}
 							textA->Text = marshal_as<String^>(A.getStringPolynomial());
 							textB->Text = marshal_as<String^>(B.getStringPolynomial());
-						}
 					}
 					else {
 						labelB->Visible = TRUE;
 						labelB->Text = "Reading error!";
 					}
-				}
 			}
 			else {
 				labelA->Visible = TRUE;

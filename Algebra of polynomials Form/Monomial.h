@@ -120,20 +120,24 @@ public:
         int tmpconv = tmp.convolution;
         while (conv > 0 || tmpconv > 0) {
             int degreeValue = conv % maxDegree + tmpconv % maxDegree;
+
             if (degreeValue >= maxDegree) {
                 result = -2;
                 break;
             }
+
             degree[tmpCount--] = degreeValue;
             conv /= maxDegree;
             tmpconv /= maxDegree;
         }
+
         tmpCount = count-1;
         for (int i = 0; i < count ; i++) {
             if (result != -2) {
             result += degree[i] * pow(maxDegree, tmpCount--);
             }
         }
+
         delete[] degree;
         Monomial res(rescoefficient, result);
         return res;

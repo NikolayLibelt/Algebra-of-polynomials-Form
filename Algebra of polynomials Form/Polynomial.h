@@ -88,10 +88,6 @@ public:
         }
     }
 
-    void erase(string str) {
-
-    }
-
     Polynomial operator +(const Polynomial& tmp){
         Polynomial A(*this);
         if (maxDegree == tmp.maxDegree && count == tmp.count) {
